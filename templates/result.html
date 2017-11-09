@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Beginning with {{ starting_balance }} hours of PDO</p>
+    <p>You currently have {{ scheduled_hours }} hour{{ scheduled_hours|pluralize }} scheduled
+        with {{ paychecks_remaining }} paycheck{{ paychecks_remaining|pluralize }} remaining</p>
+    <p>At the end of the year, you will have {{ eoy_balance }} hour{{ eoy_balance|pluralize }} remaining</p>
+    {% if waste %}
+        <p class="strong">This will involve a loss of {{ waste|floatformat }} hour{{ waste|pluralize }}</p>
+    {% endif %}
+    <a class="btn btn-block btn-secondary" href="/">Back</a>
+{% endblock %}
