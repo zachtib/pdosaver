@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'arq*c9o-)s47((f6ljkx_+6kdt^t0h*4pwe$z3-#-2y^z=g527'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pdosaver.herokuapp.com']
 
 
 # Application definition
