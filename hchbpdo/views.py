@@ -18,7 +18,7 @@ def gen_year(year):
         date_iter += datetime.timedelta(weeks=2)
     return dates
 
-def get_until(start_date, end_date):
+def gen_until(start_date, end_date):
     dates = []
     date_iter = seed_date
     while date_iter < end_date:
