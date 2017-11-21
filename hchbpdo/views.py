@@ -37,7 +37,7 @@ def pdo(request):
                 end_date = date(today.year + 1, 4, 30)
             else:
                 end_date = date(today.year, 4, 30)
-            paychecks_remaining = len(gen_until(today, end_date)
+            paychecks_remaining = len(gen_until(today, end_date))
             starting_balance = form.cleaned_data['balance']
             scheduled_hours = form.cleaned_data['days'] * 8
             eoy_balance = starting_balance + (paychecks_remaining * ACCRUAL_RATE) - scheduled_hours
