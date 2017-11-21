@@ -3,6 +3,9 @@
 
 .env/
 
+.idea
+.vscode
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
