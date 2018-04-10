@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 
 {% block content %}
-    <form action="" method="post">{% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-block btn-primary mt-2">Calculate</button>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.balance.label }}<br>
+            {{ form.balance(class_="form-control") }}
+        </p>
+        <p>
+            {{ form.days.label }}<br>
+            {{ form.days(class_="form-control") }}
+        </p>
+        <p>
+            {{ form.target_date.label }}<br>
+            {{ form.target_date(class_="form-control") }}
+        </p>
+        <p>{{ form.submit(class_="btn btn-block btn-primary mt-2") }}</p>
     </form>
 {% endblock %}

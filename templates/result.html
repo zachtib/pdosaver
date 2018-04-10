@@ -2,11 +2,11 @@
 
 {% block content %}
     <p>Beginning with {{ starting_balance }} hours of PDO</p>
-    <p>You currently have {{ scheduled_hours }} hour{{ scheduled_hours|pluralize }} scheduled
-        with {{ paychecks_remaining }} paycheck{{ paychecks_remaining|pluralize }} remaining</p>
-    <p>On {{ end_date }}, you will have {{ eoy_balance|floatformat }} hour{{ eoy_balance|pluralize }} remaining</p>
-    {% if waste %}
-        <p class="strong">This will involve a loss of {{ waste|floatformat }} hour{{ waste|pluralize }}</p>
+    <p>You currently have {{ scheduled_hours }} hours scheduled
+        with {{ paychecks_remaining }} paycheck(s) remaining</p>
+    <p>On {{ end_date.strftime('%m/%d/%Y') }}, you will have {{'%0.2f' % balance|float}} hours remaining</p>
+    {% if waste > 0 %}
+        <p class="strong">This will involve a loss of {{'%0.2f' % waste|float}} hours</p>
     {% endif %}
     <a class="btn btn-block btn-secondary" href="/">Back</a>
 {% endblock %}
