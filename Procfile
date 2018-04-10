@@ -1,1 +1,1 @@
-web: gunicorn hchbpdo.wsgi --log-file -
+web: gunicorn pdosaver:app
