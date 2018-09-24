@@ -26,7 +26,7 @@ def get_next_rollover(for_date):
 
 class PdoForm(FlaskForm):
     balance = FloatField('Current balance (in hours)', default=0)
-    days = FloatField("Scheduled PDO days", default=0)
+    scheduled = FloatField("Scheduled PDO (in hours)", default=0)
     target_date = DateField("Target Date", default=get_next_rollover(datetime.date.today()), format='%m/%d/%Y', validators=[DataRequired()])
     submit = SubmitField("Calculate")
 
@@ -50,7 +50,7 @@ def home():
         end_date = form.target_date.data
         paychecks_remaining = len(paychecks_between(today, end_date))
         starting_balance = form.balance.data
-        scheduled_hours = form.days.data
+        scheduled_hours = form.scheduled.data
         balance = starting_balance + (paychecks_remaining * ACCRUAL_RATE) - scheduled_hours
         waste = balance - 40 if balance > 40 else 0
 
